@@ -1,16 +1,11 @@
 package com.chitChat.backend.auth;
 
-import com.chitChat.backend.auth.dto.LoginRequest;
-import com.chitChat.backend.auth.dto.LoginResponse;
-import com.chitChat.backend.auth.dto.RegisterRequest;
-import com.chitChat.backend.auth.dto.RegisterResponse;
+import com.chitChat.backend.auth.dto.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -20,7 +15,7 @@ public class AuthController {
     private AuthService authService;
 
     @PostMapping("/signup")
-    public ResponseEntity<RegisterResponse> signup(@Valid @RequestBody RegisterRequest request){
+    public ResponseEntity<MessageResponse> signup(@Valid @RequestBody RegisterRequest request){
         return ResponseEntity.ok(authService.register(request));
     }
 
@@ -29,4 +24,20 @@ public class AuthController {
         LoginResponse response = authService.login(request);
         return ResponseEntity.ok(response);
     }
+
+    @PostMapping("/change-password")
+    public ResponseEntity<MessageResponse> changePassword(Authentication authentication, @Valid @RequestBody
+    ChangePasswordRequest changePasswordRequest){
+
+        String username = authentication.getName();
+        return ResponseEntity.ok(
+                authService.changePassword(
+                        username,
+                        changePasswordRequest.getCurrentPassword() ,
+                        changePasswordRequest.getNewPassword()
+                )
+        );
+    }
+
+
 }

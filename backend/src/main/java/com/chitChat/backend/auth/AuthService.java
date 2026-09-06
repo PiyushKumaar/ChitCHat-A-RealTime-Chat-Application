@@ -1,13 +1,13 @@
 package com.chitChat.backend.auth;
 
-import com.chitChat.backend.auth.dto.LoginRequest;
-import com.chitChat.backend.auth.dto.LoginResponse;
-import com.chitChat.backend.auth.dto.RegisterRequest;
-import com.chitChat.backend.auth.dto.RegisterResponse;
+import com.chitChat.backend.auth.dto.*;
+import com.chitChat.backend.controller.user.dto.UserResponse;
 
 public interface AuthService {
 
-    RegisterResponse register(RegisterRequest request);
+    MessageResponse register(RegisterRequest request);
 
     LoginResponse login(LoginRequest request);
+
+    MessageResponse changePassword(String username, String currentPassword, String newPassword);
 }

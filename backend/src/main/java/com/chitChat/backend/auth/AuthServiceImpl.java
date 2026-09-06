@@ -1,17 +1,12 @@
 package com.chitChat.backend.auth;
 
-import com.chitChat.backend.auth.dto.LoginRequest;
-import com.chitChat.backend.auth.dto.LoginResponse;
-import com.chitChat.backend.auth.dto.RegisterRequest;
-import com.chitChat.backend.auth.dto.RegisterResponse;
+import com.chitChat.backend.auth.dto.*;
+import com.chitChat.backend.controller.user.dto.UserResponse;
 import com.chitChat.backend.dao.UserRepository;
 import com.chitChat.backend.entity.user.User;
-import com.chitChat.backend.exceptions.BadCredentialsException;
-import com.chitChat.backend.exceptions.EmailAlreadyExistException;
-import com.chitChat.backend.exceptions.UsernameAlreadyExistException;
+import com.chitChat.backend.exceptions.*;
 import com.chitChat.backend.security.CustomUserDetailsService;
 import com.chitChat.backend.security.JwtService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -34,7 +29,7 @@ public class AuthServiceImpl implements AuthService{
 
 
     @Override
-    public RegisterResponse register(RegisterRequest request) {
+    public MessageResponse register(RegisterRequest request) {
 
         if(userRepository.existsByEmail(request.getEmail())){
             throw new EmailAlreadyExistException("Email Already exists");
@@ -52,7 +47,7 @@ public class AuthServiceImpl implements AuthService{
         user.setPassword(passwordEncoder.encode(request.getPassword()));
         userRepository.save(user);
 
-        return new RegisterResponse("Registration successfully !");
+        return new MessageResponse("Registration successfully !");
 
     }
 
@@ -70,4 +65,20 @@ public class AuthServiceImpl implements AuthService{
 
         return new LoginResponse(token,user.getUsername());
     }
+
+    @Override
+    public MessageResponse changePassword(String username, String currentPassword, String newPassword) {
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(()-> new ResourceNotFoundException("User not found with username " + username));
+        if(!passwordEncoder.matches(currentPassword,user.getPassword())){
+            throw new InvalidCredentialsException("Current password is incorrect");
+        }
+        user.setPassword(passwordEncoder.encode(newPassword));
+        userRepository.save(user);
+
+        return new MessageResponse("Password changed successfully");
+    }
+
+
 }
+
