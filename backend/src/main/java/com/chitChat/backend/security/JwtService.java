@@ -22,7 +22,7 @@ public class JwtService {
     private String secretKey;
 
     private SecretKey getSigningKey(){
-        return Keys.hmacShaKeyFor(secretKey.getBytes(StandardCharsets.UTF_8));
+        return Keys.hmacShaKeyFor(secretKey.getBytes());
     }
 
     public String generateToken(UserDetails userDetails){
@@ -53,7 +53,7 @@ public class JwtService {
 
     public boolean isTokenValid(String token , UserDetails userDetails){
         String username = extractUsername(token);
-        return username.equals(userDetails.getUsername()) && isTokenExpired(token);
+        return username.equals(userDetails.getUsername()) && !isTokenExpired(token);
     }
 
     public boolean isTokenExpired(String token){
