@@ -37,6 +37,12 @@ public class GlobalExceptionHandler {
         return buildResponse(HttpStatus.FORBIDDEN, ex.getMessage());
     }
 
+    @ExceptionHandler(UsernameAlreadyExistException.class)
+    public ResponseEntity<Map<String,Object>> handleEmailALreadyExits(UsernameAlreadyExistException ex){
+        log.warn("BadCredentialsException : {}",ex.getMessage(),ex);
+        return buildResponse(HttpStatus.FORBIDDEN, ex.getMessage());
+    }
+
 
     @ExceptionHandler(InvalidCredentialsException.class)
     public ResponseEntity<Map<String,Object>> handleInvaldCredentials(InvalidCredentialsException ex){
