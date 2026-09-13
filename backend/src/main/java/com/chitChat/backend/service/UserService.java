@@ -1,11 +1,9 @@
 package com.chitChat.backend.service;
 
-import com.chitChat.backend.controller.user.dto.UserRequest;
-import com.chitChat.backend.controller.user.dto.UserResponse;
-import com.chitChat.backend.controller.user.dto.UsernameUpdateResponse;
-import com.chitChat.backend.dto.PageResponse;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+import com.chitChat.backend.dto.request.UserRequest;
+import com.chitChat.backend.dto.response.UserResponse;
+import com.chitChat.backend.dto.response.UsernameUpdateResponse;
+import com.chitChat.backend.dto.response.PageResponse;
 
 public interface UserService {
 

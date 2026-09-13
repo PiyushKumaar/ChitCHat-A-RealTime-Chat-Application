@@ -1,9 +1,13 @@
 package com.chitChat.backend.serviceImpl;
 
-import com.chitChat.backend.controller.conversation.dto.*;
 import com.chitChat.backend.dao.ConversationMemberRepository;
 import com.chitChat.backend.dao.ConversationRepository;
 import com.chitChat.backend.dao.UserRepository;
+import com.chitChat.backend.dto.*;
+import com.chitChat.backend.dto.request.ConversationRequest;
+import com.chitChat.backend.dto.response.ConversationListResponse;
+import com.chitChat.backend.dto.response.ConversationResponse;
+import com.chitChat.backend.dto.response.ConversationSummaryResponse;
 import com.chitChat.backend.entity.conversation.Conversation;
 import com.chitChat.backend.entity.conversation.ConversationMember;
 import com.chitChat.backend.entity.user.User;

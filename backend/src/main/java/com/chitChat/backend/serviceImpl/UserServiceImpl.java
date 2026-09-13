@@ -1,10 +1,10 @@
 package com.chitChat.backend.serviceImpl;
 
-import com.chitChat.backend.controller.user.dto.UserRequest;
-import com.chitChat.backend.controller.user.dto.UserResponse;
-import com.chitChat.backend.controller.user.dto.UsernameUpdateResponse;
+import com.chitChat.backend.dto.request.UserRequest;
+import com.chitChat.backend.dto.response.UserResponse;
+import com.chitChat.backend.dto.response.UsernameUpdateResponse;
 import com.chitChat.backend.dao.UserRepository;
-import com.chitChat.backend.dto.PageResponse;
+import com.chitChat.backend.dto.response.PageResponse;
 import com.chitChat.backend.entity.user.User;
 import com.chitChat.backend.exceptions.ResourceNotFoundException;
 import com.chitChat.backend.security.CustomUserDetailsService;

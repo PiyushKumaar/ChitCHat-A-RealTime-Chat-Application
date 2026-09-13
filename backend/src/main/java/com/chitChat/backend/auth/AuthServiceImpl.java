@@ -1,7 +1,6 @@
 package com.chitChat.backend.auth;
 
 import com.chitChat.backend.auth.dto.*;
-import com.chitChat.backend.controller.user.dto.UserResponse;
 import com.chitChat.backend.dao.UserRepository;
 import com.chitChat.backend.entity.user.User;
 import com.chitChat.backend.exceptions.*;

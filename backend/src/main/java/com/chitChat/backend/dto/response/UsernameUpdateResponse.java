@@ -1,8 +1,7 @@
-package com.chitChat.backend.controller.user.dto;
+package com.chitChat.backend.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 
 @AllArgsConstructor

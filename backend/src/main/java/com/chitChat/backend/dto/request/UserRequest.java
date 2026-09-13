@@ -1,8 +1,6 @@
-package com.chitChat.backend.controller.user.dto;
+package com.chitChat.backend.dto.request;
 
-import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
-import org.springframework.web.multipart.MultipartFile;
 
 @Data
 public class UserRequest {

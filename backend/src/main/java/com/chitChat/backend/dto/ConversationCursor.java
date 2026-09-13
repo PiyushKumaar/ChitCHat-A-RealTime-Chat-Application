@@ -1,4 +1,4 @@
-package com.chitChat.backend.controller.conversation.dto;
+package com.chitChat.backend.dto;
 
 import java.time.Instant;
 import java.util.UUID;

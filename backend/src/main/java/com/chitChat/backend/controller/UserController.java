@@ -1,7 +1,11 @@
-package com.chitChat.backend.controller.user;
+package com.chitChat.backend.controller;
 
-import com.chitChat.backend.controller.user.dto.*;
-import com.chitChat.backend.dto.PageResponse;
+import com.chitChat.backend.dto.request.BioRequest;
+import com.chitChat.backend.dto.request.UserRequest;
+import com.chitChat.backend.dto.request.UsernameRequest;
+import com.chitChat.backend.dto.response.PageResponse;
+import com.chitChat.backend.dto.response.UserResponse;
+import com.chitChat.backend.dto.response.UsernameUpdateResponse;
 import com.chitChat.backend.service.FileService;
 import com.chitChat.backend.service.UserService;
 import jakarta.validation.Valid;

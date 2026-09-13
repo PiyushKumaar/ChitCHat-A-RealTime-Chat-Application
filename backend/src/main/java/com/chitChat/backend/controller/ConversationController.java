@@ -1,16 +1,14 @@
-package com.chitChat.backend.controller.conversation;
+package com.chitChat.backend.controller;
 
-import com.chitChat.backend.controller.conversation.dto.ConversationListResponse;
-import com.chitChat.backend.controller.conversation.dto.ConversationRequest;
-import com.chitChat.backend.controller.conversation.dto.ConversationResponse;
+import com.chitChat.backend.dto.response.ConversationListResponse;
+import com.chitChat.backend.dto.request.ConversationRequest;
+import com.chitChat.backend.dto.response.ConversationResponse;
 import com.chitChat.backend.service.ConversationService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/conversations")

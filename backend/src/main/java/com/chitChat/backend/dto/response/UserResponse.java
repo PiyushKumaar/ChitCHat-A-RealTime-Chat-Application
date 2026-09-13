@@ -1,4 +1,4 @@
-package com.chitChat.backend.controller.user.dto;
+package com.chitChat.backend.dto.response;
 
 import com.chitChat.backend.entity.user.User;
 import lombok.AllArgsConstructor;

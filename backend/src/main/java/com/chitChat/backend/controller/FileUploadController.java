@@ -1,4 +1,4 @@
-package com.chitChat.backend.controller.files;
+package com.chitChat.backend.controller;
 
 import com.chitChat.backend.service.FileService;
 import org.springframework.beans.factory.annotation.Autowired;

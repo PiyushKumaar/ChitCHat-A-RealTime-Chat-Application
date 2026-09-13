@@ -1,10 +1,8 @@
 package com.chitChat.backend.service;
 
-import com.chitChat.backend.controller.conversation.dto.ConversationListResponse;
-import com.chitChat.backend.controller.conversation.dto.ConversationRequest;
-import com.chitChat.backend.controller.conversation.dto.ConversationResponse;
-
-import java.util.UUID;
+import com.chitChat.backend.dto.response.ConversationListResponse;
+import com.chitChat.backend.dto.request.ConversationRequest;
+import com.chitChat.backend.dto.response.ConversationResponse;
 
 public interface ConversationService {
 

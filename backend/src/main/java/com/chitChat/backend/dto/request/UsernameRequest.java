@@ -1,4 +1,4 @@
-package com.chitChat.backend.controller.user.dto;
+package com.chitChat.backend.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;

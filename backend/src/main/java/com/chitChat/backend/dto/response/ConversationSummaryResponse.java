@@ -1,4 +1,4 @@
-package com.chitChat.backend.controller.conversation.dto;
+package com.chitChat.backend.dto.response;
 
 import com.chitChat.backend.enums.ConversationType;
 import lombok.AllArgsConstructor;
