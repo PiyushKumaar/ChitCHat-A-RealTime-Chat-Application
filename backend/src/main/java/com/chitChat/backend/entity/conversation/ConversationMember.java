@@ -3,12 +3,16 @@ package com.chitChat.backend.entity.conversation;
 import com.chitChat.backend.entity.user.User;
 import com.chitChat.backend.enums.ConversationMemberRole;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.Instant;
 import java.util.UUID;
 
 @Entity
+@Getter
+@Setter
 @Table(name = "conversation_members")
 public class ConversationMember {
 
@@ -18,7 +22,7 @@ public class ConversationMember {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "conversation_id",nullable = false)
-    private Conversation conversations;
+    private Conversation conversation;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id",nullable = false)
