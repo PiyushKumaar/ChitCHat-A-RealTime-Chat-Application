@@ -6,6 +6,7 @@ import com.chitChat.backend.entity.user.User;
 import com.chitChat.backend.exceptions.*;
 import com.chitChat.backend.security.CustomUserDetailsService;
 import com.chitChat.backend.security.JwtService;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -28,6 +29,7 @@ public class AuthServiceImpl implements AuthService{
 
 
     @Override
+    @Transactional
     public MessageResponse register(RegisterRequest request) {
 
         if(userRepository.existsByEmail(request.getEmail())){
@@ -66,6 +68,7 @@ public class AuthServiceImpl implements AuthService{
     }
 
     @Override
+    @Transactional
     public MessageResponse changePassword(String username, String currentPassword, String newPassword) {
         User user = userRepository.findByUsername(username)
                 .orElseThrow(()-> new ResourceNotFoundException("User not found with username " + username));

@@ -3,7 +3,7 @@ package com.chitChat.backend.serviceImpl;
 import com.chitChat.backend.dao.ConversationMemberRepository;
 import com.chitChat.backend.dao.ConversationRepository;
 import com.chitChat.backend.dao.UserRepository;
-import com.chitChat.backend.dto.*;
+import com.chitChat.backend.dto.records.ConversationCursor;
 import com.chitChat.backend.dto.request.ConversationRequest;
 import com.chitChat.backend.dto.response.ConversationListResponse;
 import com.chitChat.backend.dto.response.ConversationResponse;

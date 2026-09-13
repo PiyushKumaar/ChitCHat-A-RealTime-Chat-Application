@@ -1,4 +1,4 @@
-package com.chitChat.backend.dto;
+package com.chitChat.backend.dto.records;
 
 import java.time.Instant;
 import java.util.UUID;
